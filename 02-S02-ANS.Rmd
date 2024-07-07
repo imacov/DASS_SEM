@@ -1,0 +1,121 @@
+---
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+# Answers {.unnumbered}
+
+*Section 2 Demonstration: Fitting and interpreting a cross-sectional mediation model*
+
+```{r warning = FALSE, message = FALSE, echo = FALSE}
+library(lavaan)
+set.seed(1234)
+```
+
+## Question 1 {-}  
+
+What is the model predicted average difference in the outcome variable **y** between two people with 1 SD difference in the predictor **x**?  
+
+This question asks about the TOTAL effect of **x** on **y**. This is $(a*b) + c$. All variables are standard normal, so the units of **x** are SDs already. 
+
+The size of $a*b = -0.651$  
+
+The size of $c =  0.069$  
+
+Total effect $a*b + c = -0.582$,   
+
+which is actually slightly different to the total effect shown of $-0.583$ because of rounding error. For a one unit/SD difference in **x**, we expect a $-0.582$ unit difference in **y**. Basically, if you brush your teeth more, you will have a lot less tooth decay.
+
+## Question 2 {-}  
+
+What proportion of the difference in Q1 above is due to the effect of the mediator **m**?   
+
+
+The indirect effect $a*b$ is the only path that involves **m**. Its size is $-0.651$, which is $\frac{-0.651}{-0.583} = 1.117$, or about $111.7\%$, of the total effect. What is going on!? The indirect effect is larger than the total effect! This is  because the two effects of **x** on **y** (direct and indirect) have opposite signs, so when we consider them together, they cancel out a little bit. Think about that for a while...To recover the total effect of **x** on **y**, we had to include the effect of **m**. If we were to just look at the bivariate relationship between **x** and **y**, e.g. by just looking at their correlation, we would underestimate the size of their relationship (Incidentally, this why it is a flawed strategy to pick covariates in a regression model based upon their correlation with the outcome variable.)  
+
+## Question 3 {-}  
+
+So far, we have assumed that all relevant causes have been included in the model. Instead, what if there is a variable, **z** that is a cause of **x**, **m**, and **y**, but that is not included in the model? i.e. a confounder.  
+
+### Question 3.1 {-}  
+
+Create a population model, identical to **pop_Med** above, but which additionally contains the influence of a variable **z** that is a predictor of **x**, **m**, and **y**. The size of the influence of **z** on these other variables should be $0.1$ in the population model.    
+
+We will produce a new population dataset that includes the effect of a confounding variable, **z**, which is a predictor of **x**, **m**, and **z**. The strength of the effect of **z** on all other variables is $0.1$ SDs.
+
+```{r}
+pop_Med_conf     <- ' x ~  0.1*z
+                      m ~ -0.6*x + 0.1*z
+                      y ~  0.9*m + 0.1*x + 0.1*z
+                    '
+```
+
+
+### Question 3.2 {-}  
+
+Simulate a new dataset, based upon your new population model. Evaluate the covariances among **x**, **m**, **y**, and **z**. How do the covariances among **x**, **m**, and **y** compare to those in the original data (the data without the confounder **z**)? 
+
+```{r}
+set.seed(12345)
+data_Med_conf <- simulateData(pop_Med_conf)
+round(cor(data_Med_conf), 3)
+```
+
+The **x**, **z** correlation is a bit over-target at 0.13, but that's OK. 
+
+### Question 3.3 {-}  
+
+Fit the model **model_Med_lab** to the new data. This model does not contain **z** and is therefore mis-specified, i.e. it does not include the effect of the variable **z**. Compare the $a$, $b$, $c'$ paths in the original and new models. How do they differ? Compare the total, direct, and indirect paths in the original and new models. How do they differ? In particular, would you change your inference about the importance of the the mediator?  
+
+
+The data has changed but we are fitting the same model as before, so we can use the same model specification `(model_Med_lab)`.
+
+```{r}
+model_Med_lab   <- ' m ~ a*x 
+                     y ~ b*m + c*x
+                     ab := a*b
+                     tot := (a*b) + c
+                   '
+```
+
+Then we fit the model. 
+
+```{r}
+fit_Med_noconf <- sem(model_Med_lab, data = data_Med_conf) #, se = "bootstrap")
+
+summary(fit_Med_noconf)
+```
+
+
+As before, we are interested in the information presented under the `Regressions` and `Defined Parameters` headings.  
+
+**Regressions**
+
+$$
+\begin{array}{cccccc}
+\text{ } & \text{Estimate} & \text{Std.Err} & \text{z-value} & \text{P(>|z|)} \\
+\hline
+x (c) & 0.149 & 0.052 & 2.851 & 0.004 \\
+\end{array}
+$$
+**Defined Parameters**
+
+$$
+\begin{array}{cccccc}
+\text{} & \text{Estimate} & \text{Std.Err} & \text{z-value} & \text{P(>|z|)} \\
+\hline
+ab & -0.507 &  0.050 & -10.246 & 0.000 \\
+tot &  -0.358 &  0.063 &  -5.663 & 0.000 \\
+\end{array}
+$$
+
+Because the confounder **z** was a positive predictor, it has increased the size of the direct effect, which is also positive, and has decreased the sizes of the indirect and total effects, which are negative.  
+
+
+The size of the direct path $c$ has been overestimated so much that it is now statistically significant. The size of the total and indirect effects are now a lot lower than they should be.   
+
+In this mis-specified model, we would seriously underestimate the benefits of brushing teeth, and seriously over-estimate the risks. This is why it is so important to include all relevant variables in a model. (Note, however, that the key word here is "relevant". Including an unnecessary variable in your model can also be a problem, because it can potentially introduce bias.)
+
+
+

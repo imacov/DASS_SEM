@@ -268,21 +268,21 @@ summary(fit_lav)
 
 As you can see, there is a lot more output than from `lm()`! For now, we will focus on the part starting at `regressions`.
 
+## Tasks and Questions {-}
 
-## TASK 1 {-}
+### Task 1 {-}
 
-Fit a linear model using `lm()` to evaluate the effect of the predictors
-**Fingers** and **Objects**, and their interaction, on outcome **Time**.
+Fit a linear model using `lm()` to evaluate the effect of the predictors **Fingers** and **Objects**, and their interaction, on outcome **Time**.
 
 Are the specific hypotheses supported by the data?   
 
 
-## TASK 2 {-}
+### Task 2 {-}
 
 What are the differences between the `lm()` and `lavaan` results? Why might these differences exist?  
 
 
-## TASK 3 {-}
+### Task 3 {-}
 
 How have the results changed after relaxing the independence assumption?
 Would your answer to the research question change?  

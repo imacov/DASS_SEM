@@ -238,7 +238,7 @@ div.question {
     color: black;
     background-color: white;
     border: solid 5px #f0e6ff;
-    text-align: center;
+    text-align: justify;
     background-image: url("images/boxes/question.png");
 }
 

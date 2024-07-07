@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Answers | SOST70073 Structural Equation Modelling</title>
+  <meta name="description" content="Notebook hosting practical materials for SOST70033." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Answers | SOST70073 Structural Equation Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Answers | SOST70073 Structural Equation Modelling" />
+  
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+<meta name="author" content="Dr. Nick Shryane" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"/>
+<link rel="next" href="overview-4.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><i class="fa fa-check"></i>An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#experimental-design"><i class="fa fa-check"></i>Experimental Design</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#frequency-for-variables-and-levels"><i class="fa fa-check"></i>Frequency for Variables and Levels</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-causal-model"><i class="fa fa-check"></i>The Causal Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#statistical-model"><i class="fa fa-check"></i>Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#preparing-the-data"><i class="fa fa-check"></i>Preparing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#visualing-the-data"><i class="fa fa-check"></i>Visualing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-lavaan-package"><i class="fa fa-check"></i>The <code>lavaan</code> Package</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#tasks-and-questions"><i class="fa fa-check"></i>Tasks and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-3"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-1-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-2-1"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-3-1"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="overview-1.html"><a href="overview-1.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><i class="fa fa-check"></i>Fitting and interpreting a cross-sectional mediation model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#creating-a-simulated-dataset"><i class="fa fa-check"></i>1. Creating a Simulated Dataset</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#the-population-model"><i class="fa fa-check"></i>The Population Model</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#estimating-the-mediation-model"><i class="fa fa-check"></i>2. Estimating the Mediation Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#specify-the-statistical-model"><i class="fa fa-check"></i>2.1 Specify the statistical model:</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#adding-labels"><i class="fa fa-check"></i>2.2 Adding labels</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#computing-the-indirect-and-total-effects"><i class="fa fa-check"></i>2.3 Computing the indirect and total effects</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#model-results"><i class="fa fa-check"></i>3. Model results</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#tasks-and-questions-1"><i class="fa fa-check"></i>Tasks and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3"><i class="fa fa-check"></i>Question 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.1"><i class="fa fa-check"></i>Question 3.1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.2"><i class="fa fa-check"></i>Question 3.2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.3"><i class="fa fa-check"></i>Question 3.3</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis: Simulating Height</a>
+<ul>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#generating-the-data"><i class="fa fa-check"></i>Generating the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#cfa-models-of-the-data"><i class="fa fa-check"></i>CFA Models of the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#bonus"><i class="fa fa-check"></i>BONUS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="overview-3.html"><a href="overview-3.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><i class="fa fa-check"></i>Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html#task-and-questions"><i class="fa fa-check"></i>Task and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#the-task"><i class="fa fa-check"></i>The Task</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
+</ul></li>
+<li class="part"><span><b>Section 5</b></span></li>
+<li class="chapter" data-level="" data-path="overview-4.html"><a href="overview-4.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html"><i class="fa fa-check"></i>Building Multidimensional Confirmatory Factor Analysis Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-and-questions-1"><i class="fa fa-check"></i>Task and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-1-2"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-2-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-3-2"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-1-3"><i class="fa fa-check"></i>Task 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-1-what-makes-this-a-good-model"><i class="fa fa-check"></i>Question 1: What makes this a good model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-2-what-makes-this-a-bad-model"><i class="fa fa-check"></i>Question 2: What makes this a bad model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-3-compare-the-two-factor-model-with-a-one-factor-model-using-lrt"><i class="fa fa-check"></i>Question 3: Compare the two-factor model with a one-factor model using LRT</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-2-3"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-3-3"><i class="fa fa-check"></i>Task 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-how-do-you-interpret-the-fit-and-coefficients-of-this-model"><i class="fa fa-check"></i>Question: How do you interpret the fit and coefficients of this model?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SOST70073 Structural Equation Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<hr>
+<center> 
+  <div class="header">
+   <img src="images/banners/SEM_banner.png" alt="Trulli">
+  </div>
+</center>
+<div id="answers-2" class="section level1 unnumbered hasAnchor">
+<h1>Answers<a href="answers-2.html#answers-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><em>Section 4 Practical: Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</em></p>
+<div id="the-task" class="section level2 unnumbered hasAnchor">
+<h2>The Task<a href="answers-2.html#the-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Fit a CFA model assuming a single latent factor that is indicated by items “nervous”, “down”, “peace”, “sad”, “happy” and include intercepts (<code>meanstructure</code>) in the model. Then answer the questions below.</p>
+<p>Let’s load the required packages:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="answers-2.html#cb83-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb83-2"><a href="answers-2.html#cb83-2" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb83-3"><a href="answers-2.html#cb83-3" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<p>Importing the data (in this case, my data file is located in a folder called <code>data</code>).</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="answers-2.html#cb84-1" tabindex="-1"></a>whitehall <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/whitehall_NA.csv&quot;</span>)</span></code></pre></div>
+<p>Let’s now specify the model.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="answers-2.html#cb85-1" tabindex="-1"></a>mh_fac <span class="ot">&lt;-</span> <span class="st">&#39;mh =~ nervous + down + peace + sad + happy&#39;</span></span></code></pre></div>
+<p>The <code>=~</code> operator is read as “is indicated by” or “is measured by”. So this translates to: <em>create a latent factor called ‘mh’ that is indicated by the five observed variables listed on the right-hand side of the equation</em>.</p>
+<p>And now we fit the model.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="answers-2.html#cb86-1" tabindex="-1"></a>fit_mh_fac <span class="ot">&lt;-</span> <span class="fu">cfa</span>(mh_fac, <span class="at">data =</span> whitehall, <span class="at">meanstructure =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Let’s view the parameters estimates (standardised and unstandardised) and fit indices</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="answers-2.html#cb87-1" tabindex="-1"></a><span class="fu">summary</span>(fit_mh_fac, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 23 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                        15
+## 
+##                                                   Used       Total
+##   Number of observations                          8288       10308
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                              1663.243
+##   Degrees of freedom                                 5
+##   P-value (Chi-square)                           0.000
+## 
+## Model Test Baseline Model:
+## 
+##   Test statistic                             13261.213
+##   Degrees of freedom                                10
+##   P-value                                        0.000
+## 
+## User Model versus Baseline Model:
+## 
+##   Comparative Fit Index (CFI)                    0.875
+##   Tucker-Lewis Index (TLI)                       0.750
+## 
+## Loglikelihood and Information Criteria:
+## 
+##   Loglikelihood user model (H0)             -53393.072
+##   Loglikelihood unrestricted model (H1)     -52561.450
+##                                                       
+##   Akaike (AIC)                              106816.143
+##   Bayesian (BIC)                            106921.482
+##   Sample-size adjusted Bayesian (SABIC)     106873.815
+## 
+## Root Mean Square Error of Approximation:
+## 
+##   RMSEA                                          0.200
+##   90 Percent confidence interval - lower         0.192
+##   90 Percent confidence interval - upper         0.208
+##   P-value H_0: RMSEA &lt;= 0.050                    0.000
+##   P-value H_0: RMSEA &gt;= 0.080                    1.000
+## 
+## Standardized Root Mean Square Residual:
+## 
+##   SRMR                                           0.060
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   mh =~                                                                 
+##     nervous           1.000                               0.565    0.572
+##     down              1.047    0.023   45.831    0.000    0.592    0.710
+##     peace            -1.242    0.031  -40.296    0.000   -0.702   -0.580
+##     sad               1.349    0.028   48.492    0.000    0.762    0.816
+##     happy            -1.287    0.030  -43.240    0.000   -0.727   -0.645
+## 
+## Intercepts:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .nervous           1.725    0.011  159.096    0.000    1.725    1.748
+##    .down              1.433    0.009  156.627    0.000    1.433    1.720
+##    .peace             3.752    0.013  282.320    0.000    3.752    3.101
+##    .sad               1.872    0.010  182.334    0.000    1.872    2.003
+##    .happy             4.265    0.012  344.279    0.000    4.265    3.782
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .nervous           0.655    0.011   57.504    0.000    0.655    0.672
+##    .down              0.343    0.007   49.407    0.000    0.343    0.495
+##    .peace             0.971    0.017   57.215    0.000    0.971    0.663
+##    .sad               0.292    0.008   35.932    0.000    0.292    0.334
+##    .happy             0.743    0.014   54.183    0.000    0.743    0.584
+##     mh                0.319    0.012   25.919    0.000    1.000    1.000</code></pre>
+<p>And now the residuals.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="answers-2.html#cb89-1" tabindex="-1"></a><span class="fu">residuals</span>(fit_mh_fac)</span></code></pre></div>
+<pre><code>## $type
+## [1] &quot;raw&quot;
+## 
+## $cov
+##         nervos   down  peace    sad  happy
+## nervous  0.000                            
+## down     0.044  0.000                     
+## peace    0.007  0.097  0.000              
+## sad     -0.008  0.037  0.046  0.000       
+## happy    0.051  0.065  0.300  0.023  0.000
+## 
+## $mean
+## nervous    down   peace     sad   happy 
+##       0       0       0       0       0</code></pre>
+</div>
+<div id="question-1-1" class="section level2 unnumbered hasAnchor">
+<h2>Question 1<a href="answers-2.html#question-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpret both the standardised and unstandardised loadings: what do these tell us?</strong></p>
+<p>The factor loadings are shown in the section starting <code>mh =~</code>.</p>
+<p>Two variables (<strong>peace</strong>, <strong>happy</strong>) have negative loadings, the rest positive. This means that the latent factor is “measuring” negative mental health, i.e. people with a high factor score will tend to have high scores on nervous, down, sad and low scores on peace, happy, and vice versa.</p>
+<p>The first loading, for <strong>nervous</strong>, is fixed at <span class="math inline">\(1\)</span> to identify the scale of measurement of the latent variable. (We can tell that it is a fixed, and not estimated quantity, because it does not have an SE, z-value, p-value, etc.). This means that the latent variable <strong>mh</strong> is measured on the same measurement scale as the observed variable <strong>nervous</strong>, i.e. has the same variance/sd.</p>
+<p>The size of the other loadings are relative to this loading for <strong>nervous</strong>. <strong>Sad</strong> has the highest loading, <span class="math inline">\(1.349\)</span>. This means that a one-unit difference in the latent variable would be associated with a <span class="math inline">\(1.349\)</span> unit difference in the score on <strong>sad</strong>.</p>
+<p>The raw, unstandardised units for the loadings can be difficult to interpret because we are not familiar with interpreting the somewhat arbitrary 6-point measurement scale for these items.</p>
+<p>Instead, we often interpret the standardised loadings, which are measured in standard deviations and vary between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. These units are found in the <code>Std.all</code> column. The standardised loading for <strong>sad</strong> is <span class="math inline">\(0.816\)</span>, which means that for a one standard deviation difference in the latent variable, we would expect to see a <span class="math inline">\(0.816\)</span> standard deviation difference in the score of the observed variable <strong>sad</strong>. The variable <strong>nervous</strong> has the weakest loading, perhaps because nervousness does not always reflect poor mental health (e.g. nervous excitement).</p>
+</div>
+<div id="question-2-1" class="section level2 unnumbered hasAnchor">
+<h2>Question 2<a href="answers-2.html#question-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpret the item intercepts: What do these tell us?</strong></p>
+<p>The item intercepts represent the expected value of the observed variable when the latent variable is zero. Because the latent variable is a standard normal variable, with its mean fixed to zero, the intercepts represent the expected value of the observed variable when the latent variable is at its mean. This is getting a little “chicken and egg”, but in effect it just implies that the intercepts are the mean of the observed items.</p>
+<p>The <code>Estimates</code> column shows the unstandardised intercepts, i.e. in the original 1-6 scale of the observed variables. Average responses to the positive items (<strong>peace</strong>, <strong>happy</strong>) were much higher than those to the negative items. People reported feeling positive quite frequently, and sad/negative quite rarely.</p>
+</div>
+<div id="question-3-1" class="section level2 unnumbered hasAnchor">
+<h2>Question 3<a href="answers-2.html#question-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpret the residuals: What do these tell us?</strong></p>
+<p>The residuals are the differences between the observed and predicted values, in this case of the covariances among the observed variables. The residuals were all below <span class="math inline">\(0.1\)</span>, except for the covariance between the positive items <strong>happy</strong> and <strong>peace</strong>, which was <span class="math inline">\(0.3\)</span>. This suggests a single factor is not picking up the full relationship between these items. This suggests that big proportion of the covariance among these two “positive” items is not being adequately captured by just a single latent factor.</p>
+</div>
+<div id="question-4" class="section level2 unnumbered hasAnchor">
+<h2>Question 4<a href="answers-2.html#question-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Interpret the model fit indices (CFI, SRMR, RMSEA): what do these tell us?</strong></p>
+<p>The model fit indices are shown at the top of the output, starting with <code>Model Test User Model</code>. This gives us the chi-square test of model fit and its associated p-value. The chi-square test is a test of the null hypothesis that the model fits the data perfectly. A non-significant p-value (e.g. <span class="math inline">\(p &gt; 0.05\)</span>) would suggest that the model fits the data well. However, the chi-square test is sensitive to sample size, and so is often significant even when the model fits the data well. Our model does not fit the data well by this criterion.</p>
+<p>Next we’ll look at the <em>Comparative Fit Index (CFI)</em>. This is a measure of how well the model fits the data compared to a null model (a model with zero covariances among the observed variables). A CFI of <span class="math inline">\(1\)</span> would suggest perfect fit, and a CFI of <span class="math inline">\(0\)</span> would suggest our data fit no better than random data. The CFI of <span class="math inline">\(0.875\)</span> is fairly poor.</p>
+<p>Next up is the <em>Root Mean Square Error of Approximation (RMSEA)</em>. This is a measure based on the chi-square, but taking into account the complexity of the model (with complexity represented by estimated model parameters). An RMSEA of <span class="math inline">\(0\)</span> would suggest perfect fit, and a RMSEA of below <span class="math inline">\(0.05\)</span> would suggest a “close” fit between model and data. Our RMSEA of <span class="math inline">\(0.2\)</span> is considered poor.</p>
+<p>Finally we look at the <em>Standardized Root Mean Square Residual (SRMR)</em>. This is a measure of the average of the standardised residuals, i.e. the average error in the model-estimated correlations among the observed variables. An SRMR of <span class="math inline">\(0\)</span> would suggest the model can reproduce the observed correlations perfectly, with all zero residuals. An SRMR of below <span class="math inline">\(0.08\)</span> is considered good. Our SRMR is <span class="math inline">\(0.06\)</span> is good, but as we see from the residuals this is misleading - most residuals are small but one is very large, so on average (which is what the SRMR shows), they are small.</p>
+</div>
+<div id="question-5" class="section level2 unnumbered hasAnchor">
+<h2>Question 5<a href="answers-2.html#question-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Overall, do you support the claim made by <a href="https://journals.lww.com/spinejournal/citation/2000/12150/sf_36_health_survey_update.8.aspx">Ware 2000</a> that these five items plausibly reflect a single, latent factor?</p>
+<p>Not good enough. We can see that a single latent construct is not enough to capture the distinction between indicators of negative and positive mental health.</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="overview-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

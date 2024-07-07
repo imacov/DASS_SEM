@@ -6,12 +6,7 @@ editor_options:
 
 # Answers {-}
 
-:::file
-For this demonstration, we will make use of data from the following study:
-
-Kareklas, et al. (2013) "Water-induced finger wrinkles improve handling of wet objects", Biology Letters,
-<http://dx.doi.org/10.1098/rsbl.2012.0999>
-:::
+*Section 1 Demonstration: An Introduction to `lavaan`: How Do Wet Fingers Wrinkle?*
 
 ```{r warning = FALSE, message = FALSE, echo = FALSE}
 library("lavaan")
@@ -39,7 +34,7 @@ fit_lav <- sem(model, data=wrinkle2, meanstructure = TRUE)
 
 ```
 
-## TASK 1 {-}
+## Task 1 {-}
 
 Fit a linear model using `lm()` to evaluate the effect of the predictors
 **Fingers** and **Objects**, and their interaction, on outcome **Time**.
@@ -83,7 +78,7 @@ Upper bound $CI_{95\%} = -15.9 + (2 \times 9.079)  = 2.258$
 This shows us the plausible range of values for the interaction in the population. This range includes zero - the effect could plausibly be zero in the population. The interaction effect is therefore non-significant. The key hypothesis of an interaction between Fingers and Wrinkled is **not** supported by the results of this model.
 
 
-## TASK 2 {-}
+## Task 2 {-}
 
 What are the differences between the `lm()` and `lavaan` results? Why might these differences exist?  
 
@@ -130,7 +125,7 @@ summary(fit_lav_clus)
 ```
 
 
-## TASK 3 {-}
+## Task 3 {-}
 
 How have the results changed after relaxing the independence assumption?
 Would your answer to the research question change?  

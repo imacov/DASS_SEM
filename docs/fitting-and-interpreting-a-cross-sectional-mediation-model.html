@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Fitting and interpreting a cross-sectional mediation model | SOST70073 Structural Equation Modelling</title>
+  <meta name="description" content="Notebook hosting practical materials for SOST70033." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Fitting and interpreting a cross-sectional mediation model | SOST70073 Structural Equation Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Fitting and interpreting a cross-sectional mediation model | SOST70073 Structural Equation Modelling" />
+  
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+<meta name="author" content="Dr. Nick Shryane" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview-1.html"/>
+<link rel="next" href="answers-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><i class="fa fa-check"></i>An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#experimental-design"><i class="fa fa-check"></i>Experimental Design</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#frequency-for-variables-and-levels"><i class="fa fa-check"></i>Frequency for Variables and Levels</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-causal-model"><i class="fa fa-check"></i>The Causal Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#statistical-model"><i class="fa fa-check"></i>Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#preparing-the-data"><i class="fa fa-check"></i>Preparing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#visualing-the-data"><i class="fa fa-check"></i>Visualing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-lavaan-package"><i class="fa fa-check"></i>The <code>lavaan</code> Package</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#tasks-and-questions"><i class="fa fa-check"></i>Tasks and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-3"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-1-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-2-1"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-3-1"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="overview-1.html"><a href="overview-1.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><i class="fa fa-check"></i>Fitting and interpreting a cross-sectional mediation model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#creating-a-simulated-dataset"><i class="fa fa-check"></i>1. Creating a Simulated Dataset</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#the-population-model"><i class="fa fa-check"></i>The Population Model</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#estimating-the-mediation-model"><i class="fa fa-check"></i>2. Estimating the Mediation Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#specify-the-statistical-model"><i class="fa fa-check"></i>2.1 Specify the statistical model:</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#adding-labels"><i class="fa fa-check"></i>2.2 Adding labels</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#computing-the-indirect-and-total-effects"><i class="fa fa-check"></i>2.3 Computing the indirect and total effects</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#model-results"><i class="fa fa-check"></i>3. Model results</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#tasks-and-questions-1"><i class="fa fa-check"></i>Tasks and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3"><i class="fa fa-check"></i>Question 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.1"><i class="fa fa-check"></i>Question 3.1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.2"><i class="fa fa-check"></i>Question 3.2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.3"><i class="fa fa-check"></i>Question 3.3</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis: Simulating Height</a>
+<ul>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#generating-the-data"><i class="fa fa-check"></i>Generating the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#cfa-models-of-the-data"><i class="fa fa-check"></i>CFA Models of the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#bonus"><i class="fa fa-check"></i>BONUS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="overview-3.html"><a href="overview-3.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><i class="fa fa-check"></i>Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html#task-and-questions"><i class="fa fa-check"></i>Task and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#the-task"><i class="fa fa-check"></i>The Task</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
+</ul></li>
+<li class="part"><span><b>Section 5</b></span></li>
+<li class="chapter" data-level="" data-path="overview-4.html"><a href="overview-4.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html"><i class="fa fa-check"></i>Building Multidimensional Confirmatory Factor Analysis Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-and-questions-1"><i class="fa fa-check"></i>Task and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-1-2"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-2-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-3-2"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-1-3"><i class="fa fa-check"></i>Task 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-1-what-makes-this-a-good-model"><i class="fa fa-check"></i>Question 1: What makes this a good model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-2-what-makes-this-a-bad-model"><i class="fa fa-check"></i>Question 2: What makes this a bad model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-3-compare-the-two-factor-model-with-a-one-factor-model-using-lrt"><i class="fa fa-check"></i>Question 3: Compare the two-factor model with a one-factor model using LRT</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-2-3"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-3-3"><i class="fa fa-check"></i>Task 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-how-do-you-interpret-the-fit-and-coefficients-of-this-model"><i class="fa fa-check"></i>Question: How do you interpret the fit and coefficients of this model?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SOST70073 Structural Equation Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<hr>
+<center> 
+  <div class="header">
+   <img src="images/banners/SEM_banner.png" alt="Trulli">
+  </div>
+</center>
+<div id="fitting-and-interpreting-a-cross-sectional-mediation-model" class="section level1 unnumbered hasAnchor">
+<h1>Fitting and interpreting a cross-sectional mediation model<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#fitting-and-interpreting-a-cross-sectional-mediation-model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Before we start, install the <code>lavaanPlot</code> package.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb36-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;lavaanPlot&#39;</span>)</span></code></pre></div>
+<p>And then load the installed package as well as the <code>lavaan</code> package.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb37-1" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb37-2"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb37-2" tabindex="-1"></a><span class="fu">library</span>(lavaanPlot)</span></code></pre></div>
+<div id="creating-a-simulated-dataset" class="section level2 unnumbered hasAnchor">
+<h2>1. Creating a Simulated Dataset<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#creating-a-simulated-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will create a simulated dataset called <strong>data_Med</strong> which will
+contain 500 cases (the default) of three variables:</p>
+<ul>
+<li><strong>x</strong>, the exogenous cause (“exogenous” means it is not caused by
+any other variable in the model);<br />
+</li>
+<li><strong>m</strong>, the mediator (which is a outcome of x, but an “endogenous”
+cause of y);<br />
+</li>
+<li><strong>y</strong>, the outcome.</li>
+</ul>
+<div id="the-population-model" class="section level3 unnumbered hasAnchor">
+<h3>The Population Model<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#the-population-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The 500 cases we will create will be drawn randomly from a “population
+model”. This is the model of the causal relationships that exist in the
+population between the variables. We will then “draw” a sample of 500
+cases from this population, each with a value of <strong>x</strong>, <strong>m</strong>, and
+<strong>y</strong>, that is a result of the model.</p>
+<p>Here is an example of a population model:<br />
+<span class="math display">\[
+y \sim 0.5m + 0.2x + e
+\]</span> This means that variable <span class="math inline">\(y\)</span> is a function of variables <span class="math inline">\(m\)</span> and <span class="math inline">\(x\)</span>.</p>
+<p>The <span class="math inline">\(b\)</span> coefficient in the population for <strong>m</strong> predicting <strong>y</strong> is
+<span class="math inline">\(0.5\)</span>, in standardised units (i.e. for one standard deviation difference
+in <strong>m</strong> we would expect to see one half of a standard deviation
+difference in <strong>y</strong>).</p>
+<p>The <span class="math inline">\(b\)</span> coefficient for <strong>x</strong> predicting <strong>y</strong> is <span class="math inline">\(0.2\)</span>, so for one standard deviation in <strong>x</strong> we would expect to see <span class="math inline">\(0.2\)</span> standard deviations difference in <strong>y</strong>. The value of <strong>y</strong> is also affected by <span class="math inline">\(e\)</span>. This is the error term, which is just a random value that is added to <strong>y</strong>, to represent the fact that <strong>m</strong> and <strong>x</strong> are not the only causes of <strong>y</strong> - there will be other causes that we have not included in the model. The mean of <span class="math inline">\(e\)</span> is <span class="math inline">\(0\)</span>, so that on average it doesn’t bias the values of <strong>y</strong> systematically up or down. Its standard deviation is <span class="math inline">\(1\)</span>.</p>
+<p>Here is the population model for our mediation model. It is more complex
+than the example above, because there are two endogenous variables (i.e.
+variables caused by something else in the model). We don’t need to
+specify the error terms, because they are included by default, but both
+<strong>m</strong> and <strong>y</strong> will have error terms.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{pop_Med} \quad &amp; \begin{cases}
+m &amp; \sim -0.6x \\
+y &amp; \sim 0.9m + 0.1x
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>What is this a model of? It’s designed to represent the example of
+dental health in the material for mediation models.</p>
+<p><strong>y</strong> is the outcome, dental health, e.g. level of tooth decay.</p>
+<p><strong>x</strong> is tooth brushing, which is a causal influence on <strong>y</strong>.</p>
+<p><strong>m</strong> is a measure of bacteria in the mouth. This is a cause of tooth decay, but it itself influenced (negatively) by tooth brushing.</p>
+<p>For the purposes of this simulation, we will assume that variables <strong>x</strong>,
+<strong>m</strong>, and <strong>y</strong>, have been standardised (i.e. they have a mean of <span class="math inline">\(0\)</span> and a
+standard deviation of <span class="math inline">\(1\)</span>). The model shows that tooth decay (<strong>y</strong>) is
+strongly positively influenced by bacteria (<strong>m</strong>), and weakly influenced
+by tooth brushing (<strong>x</strong>). However, tooth brushing has a pretty strong
+negative affect on bacteria (<span class="math inline">\(-0.6\)</span>).</p>
+<p>Let’s now generate 500 cases based on this population model.</p>
+<p>First we set a “seed” number so we can re-create exactly the same data
+every time.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb38-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code></pre></div>
+<p>Then we generate the data.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb39-1" tabindex="-1"></a>pop_Med     <span class="ot">&lt;-</span> <span class="st">&#39; m ~ -0.6*x </span></span>
+<span id="cb39-2"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb39-2" tabindex="-1"></a><span class="st">                 y ~  0.9*m + 0.1*x</span></span>
+<span id="cb39-3"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb39-3" tabindex="-1"></a><span class="st">               &#39;</span></span>
+<span id="cb39-4"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb39-4" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb39-5" tabindex="-1"></a>data_Med <span class="ot">&lt;-</span> <span class="fu">simulateData</span>(pop_Med)</span></code></pre></div>
+<p>Now, let’s take a look at the first few rows of the data</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb40-1" tabindex="-1"></a><span class="fu">head</span>(data_Med)</span></code></pre></div>
+<pre><code>##             m           y          x
+## 1  0.52600181  2.36709958 -0.2363440
+## 2  0.06079546 -1.02468167 -0.7180904
+## 3 -1.99379425 -0.66757120  0.7562848
+## 4  2.78590294  2.84225973 -1.2425802
+## 5 -0.41943615  0.09772246  1.8211988
+## 6 -1.39856627 -0.26645819 -0.4124773</code></pre>
+<p>The values of <strong>x</strong> were not specified in the population model, as they are exogenous. For the model, they just represent draws from a standard normal distribution.We can see this distribution by plotting the density of <strong>x</strong>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb42-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(data_Med<span class="sc">$</span>x))  </span></code></pre></div>
+<p><img src="02-S02-P1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Let’s have a look at the sample correlations.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb43-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cor</span>(data_Med), <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##        m      y      x
+## m  1.000  0.733 -0.610
+## y  0.733  1.000 -0.416
+## x -0.610 -0.416  1.000</code></pre>
+<p>The correlation between <strong>x</strong> and <strong>m</strong> is <span class="math inline">\(-0.61\)</span>, which is very close to
+the value of <span class="math inline">\(0.6\)</span> in the population model, but it not exactly the same because we have random error in our model. The interpretation of the correlations between <strong>y</strong> and the other variables is not so straightforward, because they are affected by more than one variable.</p>
+<p>When we analyse these data with <code>lavaan</code>, we will actually be analysing
+the covariances among the variables, not the correlations. The covariances are unstandardised, and so are dependent by the scale of the variables. They are not bound to be between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>, as correlations are.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb45-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">cov</span>(data_Med), <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##        m      y      x
+## m  1.363  1.227 -0.730
+## y  1.227  2.058 -0.612
+## x -0.730 -0.612  1.050</code></pre>
+</div>
+</div>
+<div id="estimating-the-mediation-model" class="section level2 unnumbered hasAnchor">
+<h2>2. Estimating the Mediation Model<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#estimating-the-mediation-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We now have a dataset to analyse called <strong>data_Med</strong>. We next need to specify a statistical model that we will use to analyse the data. Note that we have a big advantage here compared to poor researchers who analyse messy, real world data: we know the true model that generated the data.</p>
+<div id="specify-the-statistical-model" class="section level3 unnumbered hasAnchor">
+<h3>2.1 Specify the statistical model:<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#specify-the-statistical-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb47-1" tabindex="-1"></a>model_Med       <span class="ot">&lt;-</span> <span class="st">&#39; m ~ x </span></span>
+<span id="cb47-2"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb47-2" tabindex="-1"></a><span class="st">                     y ~ m + x</span></span>
+<span id="cb47-3"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb47-3" tabindex="-1"></a><span class="st">                   &#39;</span></span></code></pre></div>
+<p>You’ll see that this looks just like the population model! The only difference is that we haven’t specified the strengths of relationships among the variables. These will be estimated from the data.</p>
+<p>Now we fit the model to the data.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb48-1" tabindex="-1"></a>fit_Med <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_Med, <span class="at">data =</span> data_Med)</span></code></pre></div>
+<p>We can use the <code>lavaanPlot</code> library to plot the path diagram implied by the analysis model.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb49-1" tabindex="-1"></a><span class="fu">lavaanPlot</span>(<span class="at">model =</span> fit_Med)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-aeee114d5979fcdad4ae" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-aeee114d5979fcdad4ae">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x; m; y \n node [shape = oval] \n  \n \n edge [ color = black ] \n x->m m->y x->y  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>From the plot we see that:</p>
+<ul>
+<li><p>The indirect path is:<br />
+<span class="math inline">\(x \rightarrow m\)</span> (path <span class="math inline">\(a\)</span>) and <span class="math inline">\(m \rightarrow y\)</span> (path <span class="math inline">\(b\)</span>)<br />
+The full indirect path is <span class="math inline">\(a*b\)</span>.</p></li>
+<li><p>The direct effect is: 
+<span class="math inline">\(x \rightarrow y\)</span> (path <span class="math inline">\(c&#39;\)</span>)</p></li>
+</ul>
+<p>We can look at the table of results.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb50-1" tabindex="-1"></a><span class="fu">summary</span>(fit_Med)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 1 iteration
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         5
+## 
+##   Number of observations                           500
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
+##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   m ~                                                 
+##     x                -0.695    0.040  -17.214    0.000
+##   y ~                                                 
+##     m                 0.938    0.047   19.907    0.000
+##     x                 0.069    0.054    1.281    0.200
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .m                 0.854    0.054   15.811    0.000
+##    .y                 0.947    0.060   15.811    0.000</code></pre>
+<p>Like the results from the simple regression model, the <span class="math inline">\(b\)</span> coefficients telling us the strengths of the relationships among the variables are in the section under <code>Regressions</code>. The results aren’t easy to interpret unless we remember which regressions belong to which paths.</p>
+<p>For example, which regression represents the <span class="math inline">\(c&#39;\)</span> mediation path? (It’s <code>y ~ x</code>, which is <span class="math inline">\(0.069\)</span>, but that’s not obvious).</p>
+<p>We can make the results easier to interpret by adding labels to the coefficients. We can also use these labels to get <code>lavaan</code> to compute the indirect and total effects for us.</p>
+</div>
+<div id="adding-labels" class="section level3 unnumbered hasAnchor">
+<h3>2.2 Adding labels<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#adding-labels" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We are going to add a text label to each arrow/path in the diagram:</p>
+<ul>
+<li>The labels are <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span><br />
+</li>
+<li><span class="math inline">\(a\)</span> is for the path between predictor <strong>x</strong> and mediator <strong>m</strong> variable<br />
+</li>
+<li><span class="math inline">\(b\)</span> is for the path between the mediator <strong>m</strong> and the outcome <strong>y</strong> variable<br />
+</li>
+<li><span class="math inline">\(c\)</span> is for the path between the predictor <strong>x</strong> and the outcome <strong>y</strong> variable</li>
+</ul>
+<p>We write each label before the variable name, and we “attach” the label by multiplying it with the variable:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb52-1" tabindex="-1"></a>model_Med_lab    <span class="ot">&lt;-</span> <span class="st">&#39; m ~ a*x </span></span>
+<span id="cb52-2"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb52-2" tabindex="-1"></a><span class="st">                      y ~ b*m + c*x</span></span>
+<span id="cb52-3"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb52-3" tabindex="-1"></a><span class="st">                    &#39;</span></span></code></pre></div>
+<p>Note that I’ve used the label <span class="math inline">\(c\)</span> rather than <span class="math inline">\(c&#39;\)</span>, because the prime symbol <span class="math inline">\(&#39;\)</span> is used by <code>lavaan</code> to encapsulate the model specification.</p>
+<p>Now we fit the model again:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb53-1" tabindex="-1"></a>fit_Med_lab <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_Med_lab, <span class="at">data =</span> data_Med)</span></code></pre></div>
+<p>And explore the revised results tables</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb54-1" tabindex="-1"></a><span class="fu">summary</span>(fit_Med_lab)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 1 iteration
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         5
+## 
+##   Number of observations                           500
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
+##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   m ~                                                 
+##     x          (a)   -0.695    0.040  -17.214    0.000
+##   y ~                                                 
+##     m          (b)    0.938    0.047   19.907    0.000
+##     x          (c)    0.069    0.054    1.281    0.200
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .m                 0.854    0.054   15.811    0.000
+##    .y                 0.947    0.060   15.811    0.000</code></pre>
+<p>The coefficients are now labelled to show which mediation path they represent.</p>
+</div>
+<div id="computing-the-indirect-and-total-effects" class="section level3 unnumbered hasAnchor">
+<h3>2.3 Computing the indirect and total effects<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#computing-the-indirect-and-total-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The key effects in mediation are:</p>
+<ul>
+<li>The direct effect: the size of <span class="math inline">\(x \rightarrow y\)</span> that is NOT
+mediated by <strong>m</strong><br />
+</li>
+<li>The indirect effect: the size of <span class="math inline">\(x \rightarrow y\)</span> that IS mediated
+by <strong>m</strong><br />
+</li>
+<li>The total effect: The sum of the two paths above.</li>
+</ul>
+<p>The size of the direct effect is given in the standard model output - it’s just the <span class="math inline">\(c\)</span> path. The indirect and total effects are compound effects - they are composed of the combination of more than one individual coefficient.</p>
+<p>The indirect effect is the product of paths a and b: <span class="math inline">\(indirect = a*b\)</span></p>
+<p>The total effect is the indirect plus direct effects: <span class="math inline">\(total = (a*b) + c\)</span></p>
+<p>We can get <code>lavaan</code> to compute the sizes and standard errors of these effects by using the <code>:=</code> operator. This creates a new coefficient in the output that is defined and computed based on combinations of other labelled coefficients in the model.</p>
+<p>The syntax is thus:</p>
+<p><code>New_coefficient := functions_of_existing_coefficients. e.g. indirect_effect := a*b.</code></p>
+<p>Therefore:<br />
+<code>ab := a*b</code> computes the indirect effect <span class="math inline">\((a1*b2)\)</span> and<br />
+<code>tot := (a*b) + c</code> computes total effect</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb56-1" tabindex="-1"></a>model_Med_lab   <span class="ot">&lt;-</span> <span class="st">&#39; m ~ a*x </span></span>
+<span id="cb56-2"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb56-2" tabindex="-1"></a><span class="st">                     y ~ b*m + c*x</span></span>
+<span id="cb56-3"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb56-3" tabindex="-1"></a><span class="st">                     ab := a*b</span></span>
+<span id="cb56-4"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb56-4" tabindex="-1"></a><span class="st">                     tot := (a*b) + c</span></span>
+<span id="cb56-5"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb56-5" tabindex="-1"></a><span class="st">                   &#39;</span></span></code></pre></div>
+<p>Now we fit the model again.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb57-1" tabindex="-1"></a>fit_Med_lab <span class="ot">&lt;-</span> <span class="fu">sem</span>(model_Med_lab, <span class="at">data =</span> data_Med)</span></code></pre></div>
+<p>And ask for the results.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb58-1" tabindex="-1"></a><span class="fu">summary</span>(fit_Med_lab)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 1 iteration
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         5
+## 
+##   Number of observations                           500
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
+##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   m ~                                                 
+##     x          (a)   -0.695    0.040  -17.214    0.000
+##   y ~                                                 
+##     m          (b)    0.938    0.047   19.907    0.000
+##     x          (c)    0.069    0.054    1.281    0.200
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .m                 0.854    0.054   15.811    0.000
+##    .y                 0.947    0.060   15.811    0.000
+## 
+## Defined Parameters:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##     ab               -0.651    0.050  -13.021    0.000
+##     tot              -0.583    0.057  -10.239    0.000</code></pre>
+</div>
+</div>
+<div id="model-results" class="section level2 unnumbered hasAnchor">
+<h2>3. Model results<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#model-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We’ll plot the path diagram again, this time showing the coefficients.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#cb60-1" tabindex="-1"></a><span class="fu">lavaanPlot</span>(<span class="at">model =</span> fit_Med, <span class="at">coefs =</span> T)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-77753dae876f878ef065" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-77753dae876f878ef065">{"x":{"diagram":" digraph plot { \n graph [ overlap = true, fontsize = 10 ] \n node [ shape = box ] \n node [shape = box] \n x; m; y \n node [shape = oval] \n  \n \n edge [ color = black ] \n x->m [label = \"-0.69\"] m->y [label = \"0.94\"] x->y [label = \"0.07\"]  \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>This is useful, but it doesn’t show the SEs, and it doesn’t show the new
+derived effects (total, indirect).</p>
+<p>Here are the results showing the direct (<strong>c</strong>), indirect (<strong>ab</strong>), and total
+(<strong>tot</strong>) effects:</p>
+<p><strong>Regressions</strong></p>
+<p><span class="math display">\[
+\begin{array}{cccccc}
+\text{ } &amp; \text{Estimate} &amp; \text{Std.Err} &amp; \text{z-value} &amp; \text{P(&gt;|z|)} \\
+\hline
+x (c) &amp; 0.069 &amp; 0.054 &amp; 1.281 &amp; 0.200 \\
+\end{array}
+\]</span></p>
+<p><strong>Defined Parameters</strong></p>
+<p><span class="math display">\[
+\begin{array}{cccccc}
+\text{} &amp; \text{Estimate} &amp; \text{Std.Err} &amp; \text{z-value} &amp; \text{P(&gt;|z|)} \\
+\hline
+ab &amp; -0.651 &amp; 0.050 &amp; -13.021 &amp; 0.000 \\
+tot &amp; -0.583 &amp; 0.057 &amp; -10.239 &amp; 0.000 \\
+\end{array}
+\]</span></p>
+<p>What do these results tell us?</p>
+<p>For every unit increase in tooth brushing (<strong>x</strong>), we would expect to see a <span class="math inline">\(0.651\)</span> unit decrease in tooth decay, attributable to the effect of tooth brushing on the reduction of bacteria. (We know it’s because of a reduction in bacteria because the “<span class="math inline">\(a\)</span>” path is negative and the “<span class="math inline">\(b\)</span>” path is positive, i.e. tooth brushing reduces bacteria, but bacteria
+increase tooth decay.)</p>
+<p>The direct effect of tooth brushing on tooth decay (“<span class="math inline">\(c\)</span>”) is <span class="math inline">\(0.069\)</span>. This is the effect of tooth brushing on tooth decay that is NOT mediated by bacteria. It is positive because tooth brushing actually harms the teeth a little bit! However, the size of this <span class="math inline">\(c\)</span> path is small and actually not statistically significant. (Note, however, that we KNOW this direct effect is not zero in the population, because we designed the population model to have a direct effect of <span class="math inline">\(0.1\)</span>. The effect is non-significant here because of sampling noise and random error. The effect of these random influences would be less if we had chosen a
+larger sample size than <span class="math inline">\(N = 500\)</span>.)</p>
+</div>
+<div id="tasks-and-questions-1" class="section level2 unnumbered hasAnchor">
+<h2>Tasks and Questions<a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#tasks-and-questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="question">
+<ol style="list-style-type: decimal">
+<li><p>What is the model predicted average difference in the outcome
+variable <strong>y</strong> between two people with 1 SD difference in the predictor
+<strong>x</strong>?</p></li>
+<li><p>What proportion of the difference in Q1 above is due to the effect
+of the mediator <strong>m</strong>?</p></li>
+<li><p>So far, we have assumed that all relevant causes have been included
+in the model. Instead, what if there is a variable, <strong>z</strong> that is a
+cause of <strong>x</strong>, <strong>m</strong>, and <strong>y</strong>, but that is not included in the model?
+i.e. a confounder.</p>
+<p>3.1. Create a population model, identical to <strong>pop_Med</strong> above, but
+which additionally contains the influence of a variable <strong>z</strong> that is
+a predictor of <strong>x</strong>, <strong>m</strong>, and <strong>y</strong>. The size of the influence of <strong>z</strong>
+on these other variables should be <span class="math inline">\(0.1\)</span> in the population model.</p>
+<p>3.2. Simulate a new dataset, based upon your new population model.
+Evaluate the covariances among <strong>x</strong>, <strong>m</strong>, <strong>y</strong>, and <strong>z</strong>. How do the
+covariances among <strong>x</strong>, <strong>m</strong>, and <strong>y</strong> compare to those in the original
+data (the data without the confounder <strong>z</strong>)?</p>
+<p>3.3. Fit the model <strong>model_Med</strong> to the new data. This model does
+not contain <strong>z</strong> and is therefore mis-specified, i.e. it does not
+include the effect of the variable <strong>z</strong>. Compare the a, b, c’ paths
+in the original and new models. How do they differ? Compare the
+total, direct, and indirect paths in the original and new models.
+How do they differ? In particular, would you change your inference
+about the importance of the the mediator?</p></li>
+</ol>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="answers-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

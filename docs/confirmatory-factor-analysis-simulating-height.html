@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Confirmatory Factor Analysis: Simulating Height | SOST70073 Structural Equation Modelling</title>
+  <meta name="description" content="Notebook hosting practical materials for SOST70033." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Confirmatory Factor Analysis: Simulating Height | SOST70073 Structural Equation Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Confirmatory Factor Analysis: Simulating Height | SOST70073 Structural Equation Modelling" />
+  
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+<meta name="author" content="Dr. Nick Shryane" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview-2.html"/>
+<link rel="next" href="overview-3.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><i class="fa fa-check"></i>An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#experimental-design"><i class="fa fa-check"></i>Experimental Design</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#frequency-for-variables-and-levels"><i class="fa fa-check"></i>Frequency for Variables and Levels</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-causal-model"><i class="fa fa-check"></i>The Causal Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#statistical-model"><i class="fa fa-check"></i>Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#preparing-the-data"><i class="fa fa-check"></i>Preparing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#visualing-the-data"><i class="fa fa-check"></i>Visualing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-lavaan-package"><i class="fa fa-check"></i>The <code>lavaan</code> Package</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#tasks-and-questions"><i class="fa fa-check"></i>Tasks and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-3"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-1-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-2-1"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-3-1"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="overview-1.html"><a href="overview-1.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><i class="fa fa-check"></i>Fitting and interpreting a cross-sectional mediation model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#creating-a-simulated-dataset"><i class="fa fa-check"></i>1. Creating a Simulated Dataset</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#the-population-model"><i class="fa fa-check"></i>The Population Model</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#estimating-the-mediation-model"><i class="fa fa-check"></i>2. Estimating the Mediation Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#specify-the-statistical-model"><i class="fa fa-check"></i>2.1 Specify the statistical model:</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#adding-labels"><i class="fa fa-check"></i>2.2 Adding labels</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#computing-the-indirect-and-total-effects"><i class="fa fa-check"></i>2.3 Computing the indirect and total effects</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#model-results"><i class="fa fa-check"></i>3. Model results</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#tasks-and-questions-1"><i class="fa fa-check"></i>Tasks and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3"><i class="fa fa-check"></i>Question 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.1"><i class="fa fa-check"></i>Question 3.1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.2"><i class="fa fa-check"></i>Question 3.2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.3"><i class="fa fa-check"></i>Question 3.3</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis: Simulating Height</a>
+<ul>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#generating-the-data"><i class="fa fa-check"></i>Generating the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#cfa-models-of-the-data"><i class="fa fa-check"></i>CFA Models of the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#bonus"><i class="fa fa-check"></i>BONUS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="overview-3.html"><a href="overview-3.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><i class="fa fa-check"></i>Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html#task-and-questions"><i class="fa fa-check"></i>Task and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#the-task"><i class="fa fa-check"></i>The Task</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
+</ul></li>
+<li class="part"><span><b>Section 5</b></span></li>
+<li class="chapter" data-level="" data-path="overview-4.html"><a href="overview-4.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html"><i class="fa fa-check"></i>Building Multidimensional Confirmatory Factor Analysis Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-and-questions-1"><i class="fa fa-check"></i>Task and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-1-2"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-2-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-3-2"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-1-3"><i class="fa fa-check"></i>Task 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-1-what-makes-this-a-good-model"><i class="fa fa-check"></i>Question 1: What makes this a good model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-2-what-makes-this-a-bad-model"><i class="fa fa-check"></i>Question 2: What makes this a bad model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-3-compare-the-two-factor-model-with-a-one-factor-model-using-lrt"><i class="fa fa-check"></i>Question 3: Compare the two-factor model with a one-factor model using LRT</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-2-3"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-3-3"><i class="fa fa-check"></i>Task 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-how-do-you-interpret-the-fit-and-coefficients-of-this-model"><i class="fa fa-check"></i>Question: How do you interpret the fit and coefficients of this model?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SOST70073 Structural Equation Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<hr>
+<center> 
+  <div class="header">
+   <img src="images/banners/SEM_banner.png" alt="Trulli">
+  </div>
+</center>
+<div id="confirmatory-factor-analysis-simulating-height" class="section level1 unnumbered hasAnchor">
+<h1>Confirmatory Factor Analysis: Simulating Height<a href="confirmatory-factor-analysis-simulating-height.html#confirmatory-factor-analysis-simulating-height" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Let’s load the relevant packages first.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb67-1" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
+<span id="cb67-2"><a href="confirmatory-factor-analysis-simulating-height.html#cb67-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>In this demonstration, we will simulate three observed measurements: one measure taken in meters, one in feet, and one in inches. We are then going to analyse these measures with a CFA model, and see how it deals with the different measurement scales. For those of you not familiar with feet and inches, they are archaic measurements of length that, although they have been superseded by a more modern measurement unit - the metre - are still in common use in the UK for certain things, notably height. They relate to metres as follows:</p>
+<p>1 metre = 3.28 feet (1 foot = 1/3.28 = 0.305 metres)</p>
+<p>1 metre = 39.37 inches (1 inch = 1/39.37 = 0.025 metres)</p>
+<p>(There are 12 inches in one foot, i.e. 39.37/3.28 = 12)</p>
+<p>In this example, these different measures will be equally “good” measures of height, i.e. they will all contain the same proportion of measurement error. The only major difference is that they will be in these different units. This example will show us how the CFA model effortlessly equates the units of different observed variables, and relates them all to the same underlying scale that is used by the latent variable.</p>
+<div id="generating-the-data" class="section level2 unnumbered hasAnchor">
+<h2>Generating the Data<a href="confirmatory-factor-analysis-simulating-height.html#generating-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We want to create 3 observed measurements of a person’s height:</p>
+<ul>
+<li><strong>y1</strong> will represent true height (F) plus measurement error (e), in metres<br />
+</li>
+<li><strong>y2</strong> will represent true height (F) plus measurement error (e), in feet<br />
+</li>
+<li><strong>y3</strong> will represent true height (F) plus measurement error (e), in inches</li>
+</ul>
+<p>These measurements will be generated using the CFA equation. We will start by creating a variable that reflects a persons “true” height (i.e. the latent, unobserved variable F). Then we will create variables to reflect the measurement error for the observed measures.</p>
+<p>We will create observed height measures as follows:</p>
+<ul>
+<li>observed_height_1 = true_height + measurement error_1<br />
+</li>
+<li>observed_height_2 = true_height + measurement error_2<br />
+</li>
+<li>observed_height_3 = true_height + measurement error_3</li>
+</ul>
+<p>The equations above are nothing but a simple CFA model, one which does not have any item intercepts or factor loadings. An equivalent way to think of it is that the intercepts and loadings are the same for measurements 1 to 3. The additional thing we will do is we will re-scale the measures so that 2 and 3 reflect measurements taken in feet and inches, respectively.</p>
+<p>When we have simulated these three observed, error prone measures of height in the three units, we will analyse the data with a CFA model and watch how, as if by magic, the model uses the loading and intercept parameters of the model to recover the measurement units of the three measurement units.</p>
+<p>Height will be simulated based on European data from: <a href="https://en.wikipedia.org/wiki/Average_human_height_by_country" class="uri">https://en.wikipedia.org/wiki/Average_human_height_by_country</a></p>
+<p>Where:</p>
+<ul>
+<li><strong>f</strong> = true height: mean 1.7 m, sd = 0.10 m<br />
+</li>
+<li><strong>e</strong> = measurement error: mean 0, sd = 0.02 m</li>
+</ul>
+<p>This means that the observed measures of height will vary from the true height by 2 cm on average.</p>
+<p>We will generate three observed measures of height (<strong>y1</strong>, <strong>y2</strong>, <strong>y3</strong>), each with it’s own measurement error. The sample size will be <span class="math inline">\(N = 500\)</span>.</p>
+<p>First, we create a dataframe with the true height (<strong>f</strong>) and the measurement errors <strong>e1</strong>, <strong>e2</strong>, and <strong>e3</strong>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb68-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb68-2"><a href="confirmatory-factor-analysis-simulating-height.html#cb68-2" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="confirmatory-factor-analysis-simulating-height.html#cb68-3" tabindex="-1"></a>height_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">f =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="fl">1.7</span>, <span class="fl">0.1</span> ), <span class="at">e1 =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">0</span>, <span class="fl">0.02</span>), </span>
+<span id="cb68-4"><a href="confirmatory-factor-analysis-simulating-height.html#cb68-4" tabindex="-1"></a>                          <span class="at">e2 =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>,   <span class="dv">0</span>, <span class="fl">0.02</span>), <span class="at">e3 =</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">0</span>, <span class="fl">0.02</span>)</span>
+<span id="cb68-5"><a href="confirmatory-factor-analysis-simulating-height.html#cb68-5" tabindex="-1"></a>                          )</span></code></pre></div>
+<p>The <code>rnorm(n, mean, sd)</code> function will generate <span class="math inline">\(n\)</span> observations, each drawn randomly from a normal distribution with the specified mean and standard deviation.</p>
+<p>Let’s now create the observed variables. <strong>y1</strong> is already in metres, so we don’t need to re-scale it, <strong>y2</strong> needs to be re-scaled to represent feet (i.e. we must multiply its values by 3.28), and <strong>y3</strong> needs to be re-scaled to represent inches (i.e. we must multiply its values by 39.37)</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb69-1" tabindex="-1"></a>height_data <span class="ot">&lt;-</span> height_data <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href="confirmatory-factor-analysis-simulating-height.html#cb69-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y1_metres =</span>  f <span class="sc">+</span> e1, </span>
+<span id="cb69-3"><a href="confirmatory-factor-analysis-simulating-height.html#cb69-3" tabindex="-1"></a>         <span class="at">y2_feet   =</span> (f <span class="sc">+</span> e2)<span class="sc">*</span><span class="fl">3.28</span>, </span>
+<span id="cb69-4"><a href="confirmatory-factor-analysis-simulating-height.html#cb69-4" tabindex="-1"></a>         <span class="at">y3_inches =</span> (f <span class="sc">+</span> e3)<span class="sc">*</span><span class="fl">39.37</span></span>
+<span id="cb69-5"><a href="confirmatory-factor-analysis-simulating-height.html#cb69-5" tabindex="-1"></a>         )</span></code></pre></div>
+<p>Let’s have a look at the data</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb70-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(height_data<span class="sc">$</span>y1_metres))</span></code></pre></div>
+<p><img src="03-S03-D1_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb71-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(height_data<span class="sc">$</span>y2_feet))</span></code></pre></div>
+<p><img src="03-S03-D1_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb72-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(height_data<span class="sc">$</span>y3_inches))</span></code></pre></div>
+<p><img src="03-S03-D1_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<p>Note that the distributions are on the different scales (metres, feet, inches), and are slightly different shapes because of measurement error.</p>
+<p>For a summary of the descriptive statistics:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-1" tabindex="-1"></a>desc_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb73-2"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-2" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">sapply</span>(height_data, mean),</span>
+<span id="cb73-3"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-3" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">sapply</span>(height_data, median),</span>
+<span id="cb73-4"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-4" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sapply</span>(height_data, sd)</span>
+<span id="cb73-5"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-5" tabindex="-1"></a>  )</span>
+<span id="cb73-6"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-6" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="confirmatory-factor-analysis-simulating-height.html#cb73-7" tabindex="-1"></a><span class="fu">print</span>(desc_stats)</span></code></pre></div>
+<pre><code>##                    Mean       Median         SD
+## f          1.7001838821  1.697929266 0.10348139
+## e1        -0.0011006645 -0.001267044 0.01917183
+## e2         0.0006335859  0.001332594 0.01875223
+## e3        -0.0000532562 -0.001031528 0.02047146
+## y1_metres  1.6990832176  1.697436416 0.10677492
+## y2_feet    5.5786812949  5.571993572 0.34980698
+## y3_inches 66.9341427404 66.808852838 4.14919324</code></pre>
+<p>And correlations:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb75-1" tabindex="-1"></a><span class="fu">cor</span>(height_data)</span></code></pre></div>
+<pre><code>##                      f          e1          e2           e3   y1_metres
+## f          1.000000000  0.08188932  0.08086834 -0.004835441 0.983858046
+## e1         0.081889315  1.00000000 -0.02650801  0.032107889 0.258917123
+## e2         0.080868336 -0.02650801  1.00000000 -0.009471980 0.073614301
+## e3        -0.004835441  0.03210789 -0.00947198  1.000000000 0.001078801
+## y1_metres  0.983858046  0.25891712  0.07361430  0.001078801 1.000000000
+## y2_feet    0.984522857  0.07479654  0.25429895 -0.006357324 0.967584768
+## y3_inches  0.980953427  0.08664333  0.07756414  0.189497465 0.966252575
+##                y2_feet  y3_inches
+## f          0.984522857 0.98095343
+## e1         0.074796539 0.08664333
+## e2         0.254298951 0.07756414
+## e3        -0.006357324 0.18949746
+## y1_metres  0.967584768 0.96625257
+## y2_feet    1.000000000 0.96546091
+## y3_inches  0.965460915 1.00000000</code></pre>
+<p>The observed height measures (<strong>y1_metres</strong>, <strong>y2_feet</strong>, <strong>y3_inches</strong>) are very, very highly correlated, as we would expect. They are basically the same measure, with just a bit of measurement error added in.</p>
+</div>
+<div id="cfa-models-of-the-data" class="section level2 unnumbered hasAnchor">
+<h2>CFA Models of the Data<a href="confirmatory-factor-analysis-simulating-height.html#cfa-models-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s now specify our CFA model using the three observed measures (metres, feet, inches) of true height.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb77-1" tabindex="-1"></a>height_metres <span class="ot">&lt;-</span> <span class="st">&#39; Height =~ y1_metres + y2_feet + y3_inches &#39;</span></span></code></pre></div>
+<p>We read the above model as follows:</p>
+<p><em>the latent variable Height is indicated by <code>=~</code> three observed variables: y1_metres, y2_feet, and y3_inches.</em></p>
+<p>Let’s fit the model to the data.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb78-1" tabindex="-1"></a>fit_height_metres <span class="ot">&lt;-</span> <span class="fu">cfa</span>(height_metres, <span class="at">data =</span> height_data)</span></code></pre></div>
+<p>And have a look at the results.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb79-1" tabindex="-1"></a><span class="fu">summary</span>(fit_height_metres, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> T)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 42 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         6
+## 
+##   Number of observations                           500
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
+##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   Height =~                                                             
+##     y1_metres         1.000                               0.105    0.984
+##     y2_feet           3.273    0.039   84.821    0.000    0.344    0.983
+##     y3_inches        38.774    0.466   83.185    0.000    4.070    0.982
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .y1_metres         0.000    0.000    9.632    0.000    0.000    0.032
+##    .y2_feet           0.004    0.000    9.937    0.000    0.004    0.033
+##    .y3_inches         0.616    0.059   10.413    0.000    0.616    0.036
+##     Height            0.011    0.001   15.306    0.000    1.000    1.000
+## 
+## R-Square:
+##                    Estimate
+##     y1_metres         0.968
+##     y2_feet           0.967
+##     y3_inches         0.964</code></pre>
+<p>The section <code>Latent variables</code> shows the model coefficients. First, under <code>Height =~</code>, are the factor loadings.</p>
+<p>The column <code>Estimate</code> shows the raw, unstandardised loadings. The unstandardised loading for meters is <span class="math inline">\(1.000\)</span>. This was fixed to exactly <span class="math inline">\(1\)</span> to identify the scale of the latent variable. This means that the latent variable is measured in exactly the same units of measurement as is the observed variable <strong>y1_metres</strong>. The latent variable is therefore measured in meters. This means that a one-unit change in the LV results in a one-unit change in observed height in meters.</p>
+<p>The unstandardised loading for <strong>y2_feet</strong> is <span class="math inline">\(3.27\)</span>, i.e. a 1 unit change in the LV (which is in meters) results in <span class="math inline">\(3.27\)</span> units change in feet. This is pretty much what we would expect, because a meter is about <span class="math inline">\(3.27\)</span> feet. Ideally it should be <span class="math inline">\(3.28\)</span>, but our measurement error must have a mean that is not quite exactly zero.</p>
+<p>We apply the same interpretation for <strong>y3_inches</strong>. The unstandardised loading is <span class="math inline">\(38.77\)</span>, which is pretty close to the known scaling factor of <span class="math inline">\(39.37\)</span> (i.e. we know that there are <span class="math inline">\(39.37\)</span> inches in a metre).</p>
+<p>So, this is what the unstandardised loadings tell us: they tell us the scale of measurement of each of the indicators, in relation to the scale of the variable with its loading fixed to one. By fixing one of the loadings to one, we fix the scale of the latent variable to the same scale as that variable.</p>
+<p>Notice that both of the loadings for <strong>y2_feet</strong> and <strong>y3_inches</strong> are underestimates of what we know to be the true scaling factors. This is because of the measurement error.</p>
+<p>How much have they been underestimated? We can see this in the standardised loadings. The standardized loadings are in the column <code>Std.all</code>. These have been re-scaled to represent units of standard deviations. The standardised loadings are all about the same for all three measures, just over <span class="math inline">\(0.98\)</span>. This is because the measurement error that we added was quite small just <span class="math inline">\(2\)</span> cm on average, which is just over <span class="math inline">\(1\%\)</span> of the average height of <span class="math inline">\(1.7\)</span> m. We can see from these standardised loadings that, despite their very different scales of measurement, these three measures are all about the same when we take into account how variable they are in their own units. When we put them into the same units, i.e. SDs, they are all about the same.</p>
+<p>How much measurement error do our measures contain? To get this we must look at the <span class="math inline">\(R^2\)</span> values at the end of the output. These are the proportion of variance in the observed variables that is accounted for by the latent variable. The <span class="math inline">\(R^2\)</span> estimates are all <span class="math inline">\(0.96-0.97\)</span>, which means that about <span class="math inline">\(97\%-98\%\)</span> of the variance in each of the observed variables is accounted for by the latent variable, and only the remaining <span class="math inline">\(2\%-3\%\)</span> is measurement error. This is a very good result, showing that these are all very good, reliable, measures of the latent variable.</p>
+</div>
+<div id="bonus" class="section level2 unnumbered hasAnchor">
+<h2>BONUS<a href="confirmatory-factor-analysis-simulating-height.html#bonus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>What happens if we use “feet” as the reference item to scale the LV?</em></p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="confirmatory-factor-analysis-simulating-height.html#cb81-1" tabindex="-1"></a>height_feet <span class="ot">&lt;-</span> <span class="st">&#39; Height =~ y2_feet + y1_metres + y3_inches &#39;</span></span>
+<span id="cb81-2"><a href="confirmatory-factor-analysis-simulating-height.html#cb81-2" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="confirmatory-factor-analysis-simulating-height.html#cb81-3" tabindex="-1"></a>fit_height_feet <span class="ot">&lt;-</span> <span class="fu">cfa</span>(height_feet, <span class="at">data =</span> height_data)</span>
+<span id="cb81-4"><a href="confirmatory-factor-analysis-simulating-height.html#cb81-4" tabindex="-1"></a></span>
+<span id="cb81-5"><a href="confirmatory-factor-analysis-simulating-height.html#cb81-5" tabindex="-1"></a><span class="fu">summary</span>(fit_height_feet, <span class="at">standardized =</span> <span class="cn">TRUE</span>, <span class="at">rsquare =</span> T)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 45 iterations
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         6
+## 
+##   Number of observations                           500
+## 
+## Model Test User Model:
+##                                                       
+##   Test statistic                                 0.000
+##   Degrees of freedom                                 0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                             Standard
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##   Height =~                                                             
+##     y2_feet           1.000                               0.344    0.983
+##     y1_metres         0.305    0.004   84.821    0.000    0.105    0.984
+##     y3_inches        11.845    0.144   82.262    0.000    4.070    0.982
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+##    .y2_feet           0.004    0.000    9.937    0.000    0.004    0.033
+##    .y1_metres         0.000    0.000    9.632    0.000    0.000    0.032
+##    .y3_inches         0.616    0.059   10.413    0.000    0.616    0.036
+##     Height            0.118    0.008   15.282    0.000    1.000    1.000
+## 
+## R-Square:
+##                    Estimate
+##     y2_feet           0.967
+##     y1_metres         0.968
+##     y3_inches         0.964</code></pre>
+<p>The model has the same fit measures and standardised loadings and <span class="math inline">\(R^2\)</span>, but the unstandardised loadings and residual variances have been re-scaled to represent measurements in feet. (i.e. a foot is about a third of a metre, and there are about 12 inches to a foot)</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="overview-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

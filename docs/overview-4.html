@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Overview | SOST70073 Structural Equation Modelling</title>
+  <meta name="description" content="Notebook hosting practical materials for SOST70033." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Overview | SOST70073 Structural Equation Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Overview | SOST70073 Structural Equation Modelling" />
+  
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+<meta name="author" content="Dr. Nick Shryane" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="answers-2.html"/>
+<link rel="next" href="building-multidimensional-confirmatory-factor-analysis-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><i class="fa fa-check"></i>An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#experimental-design"><i class="fa fa-check"></i>Experimental Design</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#frequency-for-variables-and-levels"><i class="fa fa-check"></i>Frequency for Variables and Levels</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-causal-model"><i class="fa fa-check"></i>The Causal Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#statistical-model"><i class="fa fa-check"></i>Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#preparing-the-data"><i class="fa fa-check"></i>Preparing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#visualing-the-data"><i class="fa fa-check"></i>Visualing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-lavaan-package"><i class="fa fa-check"></i>The <code>lavaan</code> Package</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#tasks-and-questions"><i class="fa fa-check"></i>Tasks and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-3"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-1-1"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-2-1"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-3-1"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+<li class="part"><span><b>Section 2</b></span></li>
+<li class="chapter" data-level="" data-path="overview-1.html"><a href="overview-1.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><i class="fa fa-check"></i>Fitting and interpreting a cross-sectional mediation model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#creating-a-simulated-dataset"><i class="fa fa-check"></i>1. Creating a Simulated Dataset</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#the-population-model"><i class="fa fa-check"></i>The Population Model</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#estimating-the-mediation-model"><i class="fa fa-check"></i>2. Estimating the Mediation Model</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#specify-the-statistical-model"><i class="fa fa-check"></i>2.1 Specify the statistical model:</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#adding-labels"><i class="fa fa-check"></i>2.2 Adding labels</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#computing-the-indirect-and-total-effects"><i class="fa fa-check"></i>2.3 Computing the indirect and total effects</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#model-results"><i class="fa fa-check"></i>3. Model results</a></li>
+<li class="chapter" data-level="" data-path="fitting-and-interpreting-a-cross-sectional-mediation-model.html"><a href="fitting-and-interpreting-a-cross-sectional-mediation-model.html#tasks-and-questions-1"><i class="fa fa-check"></i>Tasks and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-2"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3"><i class="fa fa-check"></i>Question 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.1"><i class="fa fa-check"></i>Question 3.1</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.2"><i class="fa fa-check"></i>Question 3.2</a></li>
+<li class="chapter" data-level="" data-path="answers-1.html"><a href="answers-1.html#question-3.3"><i class="fa fa-check"></i>Question 3.3</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Section 3</b></span></li>
+<li class="chapter" data-level="" data-path="overview-2.html"><a href="overview-2.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html"><i class="fa fa-check"></i>Confirmatory Factor Analysis: Simulating Height</a>
+<ul>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#generating-the-data"><i class="fa fa-check"></i>Generating the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#cfa-models-of-the-data"><i class="fa fa-check"></i>CFA Models of the Data</a></li>
+<li class="chapter" data-level="" data-path="confirmatory-factor-analysis-simulating-height.html"><a href="confirmatory-factor-analysis-simulating-height.html#bonus"><i class="fa fa-check"></i>BONUS</a></li>
+</ul></li>
+<li class="part"><span><b>Section 4</b></span></li>
+<li class="chapter" data-level="" data-path="overview-3.html"><a href="overview-3.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><i class="fa fa-check"></i>Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</a>
+<ul>
+<li class="chapter" data-level="" data-path="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html"><a href="fitting-cfa-models-a-case-study-using-the-sf-36-mental-health-scale.html#task-and-questions"><i class="fa fa-check"></i>Task and Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#the-task"><i class="fa fa-check"></i>The Task</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-1-1"><i class="fa fa-check"></i>Question 1</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-2-1"><i class="fa fa-check"></i>Question 2</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-3-1"><i class="fa fa-check"></i>Question 3</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-4"><i class="fa fa-check"></i>Question 4</a></li>
+<li class="chapter" data-level="" data-path="answers-2.html"><a href="answers-2.html#question-5"><i class="fa fa-check"></i>Question 5</a></li>
+</ul></li>
+<li class="part"><span><b>Section 5</b></span></li>
+<li class="chapter" data-level="" data-path="overview-4.html"><a href="overview-4.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html"><i class="fa fa-check"></i>Building Multidimensional Confirmatory Factor Analysis Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-and-questions-1"><i class="fa fa-check"></i>Task and Questions</a>
+<ul>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-1-2"><i class="fa fa-check"></i>Task 1</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-2-2"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="building-multidimensional-confirmatory-factor-analysis-models.html"><a href="building-multidimensional-confirmatory-factor-analysis-models.html#task-3-2"><i class="fa fa-check"></i>Task 3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-1-3"><i class="fa fa-check"></i>Task 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-1-what-makes-this-a-good-model"><i class="fa fa-check"></i>Question 1: What makes this a good model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-2-what-makes-this-a-bad-model"><i class="fa fa-check"></i>Question 2: What makes this a bad model?</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-3-compare-the-two-factor-model-with-a-one-factor-model-using-lrt"><i class="fa fa-check"></i>Question 3: Compare the two-factor model with a one-factor model using LRT</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-2-3"><i class="fa fa-check"></i>Task 2</a></li>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#task-3-3"><i class="fa fa-check"></i>Task 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers-3.html"><a href="answers-3.html#question-how-do-you-interpret-the-fit-and-coefficients-of-this-model"><i class="fa fa-check"></i>Question: How do you interpret the fit and coefficients of this model?</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SOST70073 Structural Equation Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<hr>
+<center> 
+  <div class="header">
+   <img src="images/banners/SEM_banner.png" alt="Trulli">
+  </div>
+</center>
+<div id="overview-4" class="section level1 unnumbered hasAnchor">
+<h1>Overview<a href="overview-4.html#overview-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div style="color: #333; font-size: 24px; font-style: italic; text-align: justify;">
+<p>Section 5: Building SEMs</p>
+</div>
+<p>This section is comprised of one practical in which we will build on the
+unidimensional CFA model we considered in Section 4 using data collected
+as part of the <a href="https://www.ucl.ac.uk/psychiatry/research/mental-health-older-people/whitehall-ii">“Whitehall II”
+study</a>.</p>
+<p>In Section 4, we saw that the assumption of a single latent “mental
+health” variable for the SF-36 questionnaire “mental health” items was
+not supported by the data. For this practical we will assess the fit of
+a two-dimensional CFA model of the same five SF-36 items.</p>
+<div class="file">
+<p>For this practical, you will again require the same files as in Section
+4: <code>whitehall_NA.csv</code>, <code>codebook for whitehall_NA.docx</code>, and
+<code>CFA example - mental health sf-36.docx</code>.</p>
+</div>
+<div class="ilos">
+<p><strong>Learning Outcomes:</strong></p>
+<ul>
+<li>build and fit one-factor and two-factor models;</li>
+<li>interpret the fit and coefficients of one-factor and two-factor
+models;</li>
+<li>compare a two-factor model with a one-factor model using the
+Likelihood Ratio Test.</li>
+</ul>
+</div>
+<p><strong>In this section, you will practice using the functions below. It is
+highly recommended that you explore these functions further using the
+Help tab in your RStudio console.</strong></p>
+<table>
+<colgroup>
+<col width="34%" />
+<col width="44%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Function</th>
+<th align="center">Description</th>
+<th align="center">Package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>read_csv()</code></td>
+<td align="center">read a delimited file</td>
+<td align="center">readr</td>
+</tr>
+<tr class="even">
+<td align="center"><code>cfa()</code></td>
+<td align="center">fit CFA models</td>
+<td align="center">lavaan</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>summary()</code></td>
+<td align="center">generic function for producing result summaries of models</td>
+<td align="center">base</td>
+</tr>
+<tr class="even">
+<td align="center"><code>lavResiduals()</code></td>
+<td align="center">provides model residuals and standardised residuals, including various summaries</td>
+<td align="center">lavaan</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>anova()</code></td>
+<td align="center">LRT test for comparing (nested) lavaan models</td>
+<td align="center">lavaan (note that this is different to the <code>anova()</code> function from stats)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="answers-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="building-multidimensional-confirmatory-factor-analysis-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

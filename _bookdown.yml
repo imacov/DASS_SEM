@@ -6,6 +6,18 @@ rmd_files:
 - 01-S01-overview.Rmd
 - 01-S01-D1.Rmd
 - 01-S01-ANS.Rmd
+- 02-S02-overview.Rmd
+- 02-S02-P1.Rmd
+- 02-S02-ANS.Rmd
+- 03-S03-overview.Rmd
+- 03-S03-D1.Rmd
+- 04-S04-overview.Rmd
+- 04-S04-P1.Rmd
+- 04-S04-ANS.Rmd
+- 05-S05-overview.Rmd
+- 05-S05-P1.Rmd
+- 05-S05-ANS.Rmd
+
 output_dir: docs
 language:
   ui:
