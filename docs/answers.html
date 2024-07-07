@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Answers | SOST70073 Structural Equation Modelling</title>
+  <meta name="description" content="Notebook hosting practical materials for SOST70033." />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Answers | SOST70073 Structural Equation Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Answers | SOST70073 Structural Equation Modelling" />
+  
+  <meta name="twitter:description" content="Notebook hosting practical materials for SOST70033." />
+  
+
+<meta name="author" content="Dr. Nick Shryane" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/logos/uom_logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="part"><span><b>Section 1</b></span></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><i class="fa fa-check"></i>An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</a>
+<ul>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#workspace"><i class="fa fa-check"></i>Workspace</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#data"><i class="fa fa-check"></i>Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#experimental-design"><i class="fa fa-check"></i>Experimental Design</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#frequency-for-variables-and-levels"><i class="fa fa-check"></i>Frequency for Variables and Levels</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-causal-model"><i class="fa fa-check"></i>The Causal Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#statistical-model"><i class="fa fa-check"></i>Statistical Model</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#preparing-the-data"><i class="fa fa-check"></i>Preparing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#visualing-the-data"><i class="fa fa-check"></i>Visualing the Data</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#the-lavaan-package"><i class="fa fa-check"></i>The <code>lavaan</code> Package</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-1"><i class="fa fa-check"></i>TASK 1</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-2"><i class="fa fa-check"></i>TASK 2</a></li>
+<li class="chapter" data-level="" data-path="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html"><a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html#task-3"><i class="fa fa-check"></i>TASK 3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html"><i class="fa fa-check"></i>Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-1-1"><i class="fa fa-check"></i>TASK 1</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-2-1"><i class="fa fa-check"></i>TASK 2</a></li>
+<li class="chapter" data-level="" data-path="answers.html"><a href="answers.html#task-3-1"><i class="fa fa-check"></i>TASK 3</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SOST70073 Structural Equation Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<hr>
+<center> 
+  <div class="header">
+   <img src="images/banners/SEM_banner.png" alt="Trulli">
+  </div>
+</center>
+<div id="answers" class="section level1 unnumbered hasAnchor">
+<h1>Answers<a href="answers.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="file">
+<p>For this demonstration, we will make use of data from the following study:</p>
+<p>Kareklas, et al. (2013) “Water-induced finger wrinkles improve handling of wet objects”, Biology Letters,
+<a href="http://dx.doi.org/10.1098/rsbl.2012.0999" class="uri">http://dx.doi.org/10.1098/rsbl.2012.0999</a></p>
+</div>
+<div id="task-1-1" class="section level2 unnumbered hasAnchor">
+<h2>TASK 1<a href="answers.html#task-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Fit a linear model using <code>lm()</code> to evaluate the effect of the predictors
+<strong>Fingers</strong> and <strong>Objects</strong>, and their interaction, on outcome <strong>Time</strong>.</p>
+<p>Are the specific hypotheses supported by the data?</p>
+<p>Let’s fit the model.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="answers.html#cb26-1" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Time <span class="sc">~</span> Fingers_wrinkled <span class="sc">+</span> Objects_wet <span class="sc">+</span> Interaction, <span class="at">data =</span> wrinkle2)</span>
+<span id="cb26-2"><a href="answers.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="answers.html#cb26-3" tabindex="-1"></a><span class="fu">summary</span>(fit_lm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Time ~ Fingers_wrinkled + Objects_wet + Interaction, 
+##     data = wrinkle2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.900 -15.113  -2.025  11.925  80.100 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        93.300      4.539  20.554  &lt; 2e-16 ***
+## Fingers_wrinkled    0.850      6.420   0.132  0.89501    
+## Objects_wet        24.600      6.420   3.832  0.00026 ***
+## Interaction       -15.900      9.079  -1.751  0.08391 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 20.3 on 76 degrees of freedom
+## Multiple R-squared:  0.1997, Adjusted R-squared:  0.1681 
+## F-statistic: 6.323 on 3 and 76 DF,  p-value: 0.0006927</code></pre>
+<p>If we explore the residuals, we can note that none of the plots reveals a major problem.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="answers.html#cb28-1" tabindex="-1"></a><span class="fu">plot</span>(fit_lm)</span></code></pre></div>
+<p><img src="01-S01-ANS_files/figure-html/unnamed-chunk-3-1.png" width="672" /><img src="01-S01-ANS_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre><code>## hat values (leverages) are all = 0.05
+##  and there are no factor predictors; no plot no. 5</code></pre>
+<p><img src="01-S01-ANS_files/figure-html/unnamed-chunk-3-3.png" width="672" /><img src="01-S01-ANS_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>
+<p>Substantive interpretation of the coefficients:</p>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="13%" />
+<col width="63%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Coefficient</strong></td>
+<td><strong>Value</strong></td>
+<td><strong>Interpretation</strong></td>
+</tr>
+<tr class="even">
+<td>Intercept</td>
+<td>93.300</td>
+<td>Mean time to handle dry objects with dry hands</td>
+</tr>
+<tr class="odd">
+<td>Fingers_wrinkled</td>
+<td>0.850</td>
+<td>Additional time to handle dry objects with wet hands</td>
+</tr>
+<tr class="even">
+<td>Objects_wet</td>
+<td>24.600</td>
+<td>Additional time to handle wet objects with dry hands Interaction</td>
+</tr>
+<tr class="odd">
+<td>Interaction</td>
+<td>15.900</td>
+<td>Difference from above when handling wet objects with wet hands</td>
+</tr>
+</tbody>
+</table>
+<p>The pattern of coefficients supports the hypotheses: Handling wet objects with dry hands takes on average <span class="math inline">\(24.6\)</span> seconds longer than handling dry objects with dry hands, but if the hands are wet when handling the wet objects, it takes <span class="math inline">\(15.9\)</span> seconds less than this: It takes <span class="math inline">\(24.6\)</span> seconds longer to handle wet objects with dry hands than dry objects with dry hands. It takes <span class="math inline">\(24.6 - 15.9 = 8.7\)</span> seconds longer to handle wet objects with wet hands than it takes to handle dry objects with dry hands.</p>
+<p>However, the SE for the Interaction is <span class="math inline">\(9.079\)</span>, so the <span class="math inline">\(95%\)</span> confidence interval is:</p>
+<p>Lower Bound <span class="math inline">\(CI_{95\%} = -15.9 - (2 \times 9.079) = -34.058\)</span></p>
+<p>Upper bound <span class="math inline">\(CI_{95\%} = -15.9 + (2 \times 9.079) = 2.258\)</span></p>
+<p>This shows us the plausible range of values for the interaction in the population. This range includes zero - the effect could plausibly be zero in the population. The interaction effect is therefore non-significant. The key hypothesis of an interaction between Fingers and Wrinkled is <strong>not</strong> supported by the results of this model.</p>
+</div>
+<div id="task-2-1" class="section level2 unnumbered hasAnchor">
+<h2>TASK 2<a href="answers.html#task-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What are the differences between the <code>lm()</code> and <code>lavaan</code> results? Why might these differences exist?</p>
+<p>The estimates for the b coefficients are exactly the same. The standard errors are all a bit smaller. This is because this model was not estimated using OLS. By default, <code>lavaan</code> uses “maximum likelihood” (ML) estimation. ML uses an iterative algorithm that selects the model parameters that were “most likely” to have resulted in the observed data. ML makes an additional assumption that OLS does not - it assumes the residuals are normally distributed. If the residuals are plausibly from a normal distribution, the ML estimator is more “efficient”, especially in small samples. “Efficient” means that it has smaller standard errors. Because the SEs are slightly smaller, the p-values are also slightly lower. However, the Interaction effect is still non-significant (<span class="math inline">\(p=0.072\)</span>).</p>
+<p><code>lavaan</code> hasn’t given us <span class="math inline">\(R^2\)</span>, but we can work it out for ourselves:</p>
+<p><span class="math inline">\(R^2 = \frac{(var_0 - var_1)}{var_0}\)</span>, where <span class="math inline">\(var_0\)</span> is the variance of the outcome variable, and <span class="math inline">\(var1\)</span> is the variance of the residuals after fitting the model.</p>
+<p>From the output, we find that <span class="math inline">\(var_1\)</span> (residual variance of Time) is <span class="math inline">\(391.489\)</span>. We can then obtain <span class="math inline">\(var_0\)</span> by:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="answers.html#cb30-1" tabindex="-1"></a>var_0 <span class="ot">&lt;-</span> <span class="fu">var</span>(wrinkle2<span class="sc">$</span>Time)</span></code></pre></div>
+<p>Therefore, <span class="math inline">\(R^2 = \frac{(495.3899 - 391.489)}{495.3899} = 0.21\)</span></p>
+<p>This is slightly higher than the value computed by <code>lm()</code>, because <code>lavaan</code> uses the sample size <span class="math inline">\(N\)</span> to compute variances, rather than <span class="math inline">\(N-1\)</span> as <code>lm()</code> does.</p>
+<p><em>TIP: To get the same <span class="math inline">\(R^2\)</span> as <code>lm()</code>, include the option: <code>likelihood = "wishart"</code> in the model estimation command.</em></p>
+<p>An assumption of both <code>lm()</code> and <code>lavaan</code> models above is that the observations are independent. Let’s see:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="answers.html#cb31-1" tabindex="-1"></a><span class="fu">glimpse</span>(wrinkle2)</span></code></pre></div>
+<pre><code>## Rows: 80
+## Columns: 14
+## $ rownames         &lt;int&gt; 1, 21, 41, 61, 2, 22, 42, 62, 3, 23, 43, 63, 4, 24, 4…
+## $ Participant      &lt;chr&gt; &quot;p1&quot;, &quot;p1&quot;, &quot;p1&quot;, &quot;p1&quot;, &quot;p2&quot;, &quot;p2&quot;, &quot;p2&quot;, &quot;p2&quot;, &quot;p3&quot;,…
+## $ id               &lt;dbl&gt; 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5,…
+## $ Time             &lt;int&gt; 106, 139, 107, 118, 113, 138, 97, 106, 94, 136, 117, …
+## $ Condition        &lt;chr&gt; &quot;non-wrinkled/dry&quot;, &quot;non-wrinkled/wet&quot;, &quot;wrinkled/dry…
+## $ Fingers          &lt;chr&gt; &quot;non&quot;, &quot;non&quot;, &quot;wrinkled&quot;, &quot;wrinkled&quot;, &quot;non&quot;, &quot;non&quot;, &quot;…
+## $ Objects          &lt;chr&gt; &quot;dry&quot;, &quot;wet&quot;, &quot;dry&quot;, &quot;wet&quot;, &quot;dry&quot;, &quot;wet&quot;, &quot;dry&quot;, &quot;wet…
+## $ WrinkledThenNon  &lt;int&gt; 1, 1, 1, 1, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1,…
+## $ DryThenWet       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+## $ Fingers_non      &lt;int&gt; 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1,…
+## $ Fingers_wrinkled &lt;int&gt; 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0,…
+## $ Objects_dry      &lt;int&gt; 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,…
+## $ Objects_wet      &lt;int&gt; 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,…
+## $ Interaction      &lt;int&gt; 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,…</code></pre>
+<p>There are only 20 participants, but there are 80 rows of data: Each participant did the task four times, and has four rows of data. These observations are therefore not independent, they are clustered within participants. This violates the independence assumption of the residuals in these simple linear models.</p>
+<p>What can we do?</p>
+<p>With <code>lavaan</code>, we can relax this assumption by allowing for the clustering when computing the model SEs (the independence assumption only affects the SEs, not the b-values themselves.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="answers.html#cb33-1" tabindex="-1"></a>fit_lav_clus <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, <span class="at">data =</span> wrinkle2, <span class="at">meanstructure =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb33-2"><a href="answers.html#cb33-2" tabindex="-1"></a>                    <span class="at">cluster =</span> <span class="st">&quot;Participant&quot;</span>)</span></code></pre></div>
+<p>The <code>cluster</code> command tells <code>lavaan</code> that the observations (rows) are clustered within values of <strong>Participant</strong>. It then computes “robust” SEs, taking this non-independence into account.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="answers.html#cb34-1" tabindex="-1"></a><span class="fu">summary</span>(fit_lav_clus)</span></code></pre></div>
+<pre><code>## lavaan 0.6-18 ended normally after 1 iteration
+## 
+##   Estimator                                         ML
+##   Optimization method                           NLMINB
+##   Number of model parameters                         5
+## 
+##   Number of observations                            80
+##   Number of clusters [Participant]                  20
+## 
+## Model Test User Model:
+##                                               Standard      Scaled
+##   Test Statistic                                 0.000       0.000
+##   Degrees of freedom                                 0           0
+## 
+## Parameter Estimates:
+## 
+##   Standard errors                        Robust.cluster
+##   Information                                  Observed
+##   Observed information based on                 Hessian
+## 
+## Regressions:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   Time ~                                              
+##     Fingers_wrnkld    0.850    2.573    0.330    0.741
+##     Objects_wet      24.600    3.833    6.418    0.000
+##     Interaction     -15.900    2.365   -6.722    0.000
+## 
+## Intercepts:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .Time             93.300    3.191   29.243    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .Time            391.489  139.008    2.816    0.005</code></pre>
+</div>
+<div id="task-3-1" class="section level2 unnumbered hasAnchor">
+<h2>TASK 3<a href="answers.html#task-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How have the results changed after relaxing the independence assumption?
+Would your answer to the research question change?</p>
+<p>YES! The values of the b-coefficients have not changed, but the SEs are now corrected for clustering within participants and are now very much smaller than before. (This is unusual - for much social data we would expect the SEs to be larger after correction for clustering, but this was a well-designed experiment where the clustering was “explained” by the design.)</p>
+<p>The SE for the Interaction is <span class="math inline">\(2.365\)</span>, so the <span class="math inline">\(95%\)</span> confidence interval is:</p>
+<p>Lower Bound <span class="math inline">\(CI_{95\%} = -15.9 - (2 \times 2.365) = -20.63\)</span></p>
+<p>Upper bound <span class="math inline">\(CI_{95\%} = -15.9 + (2 \times 2.365) = -11.17\)</span></p>
+<p>The <span class="math inline">\(95%\)</span> confidence interval does NOT include zero! The plausible population values for the improvement in handling time for wet objects when the hands are wet/wrinkled compared to dry is now between <span class="math inline">\(11.17\)</span> and <span class="math inline">\(20.63\)</span> seconds faster.</p>
+<p><strong>In summary, <code>lavaan</code> can do everything that <code>lm()</code> can do, and much, much more as we will see. But be aware that there are differences, for example in the default methods for model estimation (ML vs OLS).</strong></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="an-introduction-to-lavaan-how-do-wet-fingers-wrinkle.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

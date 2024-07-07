@@ -5,6 +5,7 @@ rmd_files:
 - index.Rmd
 - 01-S01-overview.Rmd
 - 01-S01-D1.Rmd
+- 01-S01-ANS.Rmd
 output_dir: docs
 language:
   ui:
