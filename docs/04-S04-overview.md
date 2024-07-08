@@ -16,23 +16,19 @@ This section is comprised of one practical in which you will assess the
 fit of a CFA model on the SF-36 "Mental Health" scale.
 
 ::: file
-For this practical, you will require the following files:
+For this practical, you will require the following files from
+Blackboard:
 
-Data: <a href="data/whitehall_NA.csv" download="whitehall_NA.csv">
-whitehall_NA.csv </a>.
+Data: `whitehall_NA.csv`
 
-Codebook:
-<a href="data/codebook for whitehall_NA.docx" download="codebook for whitehall_NA.docx">
-codebook for whitehall_NA.docx </a>. This file describes the variables
-in the above data file. The key variables we'll be using are: nervous,
-down, calm, sad, happy. We will treat these responses as continuous
-scores.
+Codebook: `codebook for whitehall_NA.docx.`This file describes the
+variables in the above data file. The key variables we'll be using are:
+nervous, down, calm, sad, happy. We will treat these responses as
+continuous scores.
 
-Information on SF-36:
-<a href="data/CFA example - mental health sf-36.docx" download="CFA example - mental health sf-36.docx">
-CFA example - mental health sf-36.docx </a>. This shows the hypothesised
-latent structure of the SF-36 questionnaire, i.e. what latent variables
-it is supposed to measure.
+Information on SF-36: `CFA example - mental health sf-36.docx`. This
+shows the hypothesised latent structure of the SF-36 questionnaire, i.e.
+what latent variables it is supposed to measure.
 :::
 
 The data you will analyse were collected as part of the "Whitehall II"
@@ -64,7 +60,7 @@ highly recommended that you explore these functions further using the
 Help tab in your RStudio console.**
 
 |   Function    |                        Description                        | Package |
-|:---------------:|:----------------------------------------------------:|:-------------------:|
+|:---------------:|:------------------------------------:|:---------------:|
 | `read_csv()`  |             read a delimited file into tibble             |  readr  |
 |    `cfa()`    |                      fit CFA models                       | lavaan  |
 |  `summary()`  | generic function for producing result summaries of models |  base   |
