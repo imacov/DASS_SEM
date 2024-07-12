@@ -274,6 +274,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="answers" class="section level1 unnumbered hasAnchor">
 <h1>Answers<a href="answers.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>Section 1 Demonstration: An Introduction to <code>lavaan</code>: How Do Wet Fingers Wrinkle?</em></p>
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S1_FW") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+<p>
+Enter the code provided on Blackboard to view the answers:
+</p>
+<p><input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button></p>
+<div id="hiddenContent" style="display:none;">
+
+
+
 <div id="task-1-1" class="section level2 unnumbered hasAnchor">
 <h2>Task 1<a href="answers.html#task-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Fit a linear model using <code>lm()</code> to evaluate the effect of the predictors

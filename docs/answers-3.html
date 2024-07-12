@@ -274,6 +274,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="answers-3" class="section level1 unnumbered hasAnchor">
 <h1>Answers<a href="answers-3.html#answers-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>Section 5 Practical: Building Multidimensional Confirmatory Factor Analysis Models</em></p>
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S5_CFA_MultiD") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+<p>
+Enter the code provided on Blackboard to view the answers:
+</p>
+<p><input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button></p>
+<div id="hiddenContent" style="display:none;">
+
+
 <p>Let’s load the required packages:</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="answers-3.html#cb91-1" tabindex="-1"></a><span class="fu">library</span>(lavaan)</span>
 <span id="cb91-2"><a href="answers-3.html#cb91-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
@@ -712,13 +730,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
 ##   general =~                                                            
 ##     sad               1.000                               0.792    0.847
-##     nervous           0.713    0.023   31.498    0.000    0.564    0.571
-##     down              0.775    0.016   49.241    0.000    0.614    0.737
-##     happy            -0.815    0.023  -34.842    0.000   -0.646   -0.572
-##     peace            -0.755    0.025  -30.697    0.000   -0.598   -0.494
+##     nervous           0.713    0.022   32.527    0.000    0.564    0.571
+##     down              0.775    0.017   46.452    0.000    0.614    0.737
+##     happy            -0.815    0.023  -35.519    0.000   -0.646   -0.572
+##     peace            -0.755    0.024  -31.825    0.000   -0.598   -0.494
 ##   pos =~                                                                
 ##     happy             1.000                               0.730    0.648
-##     peace             0.796    0.012   68.444    0.000    0.581    0.481
+##     peace             0.796    0.011   70.869    0.000    0.581    0.481
 ## 
 ## Covariances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
@@ -727,21 +745,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Intercepts:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .sad               1.872    0.010  187.930    0.000    1.872    2.003
-##    .nervous           1.725    0.011  158.379    0.000    1.725    1.748
-##    .down              1.433    0.009  155.250    0.000    1.433    1.720
-##    .happy             4.265    0.012  352.332    0.000    4.265    3.782
-##    .peace             3.752    0.014  275.658    0.000    3.752    3.101
+##    .sad               1.872    0.010  181.842    0.000    1.872    2.003
+##    .nervous           1.725    0.011  155.644    0.000    1.725    1.748
+##    .down              1.433    0.009  154.705    0.000    1.433    1.720
+##    .happy             4.265    0.013  335.058    0.000    4.265    3.782
+##    .peace             3.752    0.014  274.108    0.000    3.752    3.101
 ## 
 ## Variances:
 ##                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-##    .sad               0.247    0.012   20.162    0.000    0.247    0.282
-##    .nervous           0.657    0.018   35.695    0.000    0.657    0.673
-##    .down              0.317    0.013   24.010    0.000    0.317    0.457
-##    .happy             0.322    0.013   25.443    0.000    0.322    0.253
-##    .peace             0.768    0.015   49.611    0.000    0.768    0.525
-##     general           0.627    0.022   28.356    0.000    1.000    1.000
-##     pos               0.534    0.016   33.127    0.000    1.000    1.000</code></pre>
+##    .sad               0.247    0.013   19.528    0.000    0.247    0.282
+##    .nervous           0.657    0.019   34.776    0.000    0.657    0.673
+##    .down              0.317    0.013   23.576    0.000    0.317    0.457
+##    .happy             0.322    0.013   24.443    0.000    0.322    0.253
+##    .peace             0.768    0.016   48.990    0.000    0.768    0.525
+##     general           0.627    0.021   29.283    0.000    1.000    1.000
+##     pos               0.534    0.016   33.123    0.000    1.000    1.000</code></pre>
 <p>Let’s now compare it with the earlier two-factor model.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="answers-3.html#cb108-1" tabindex="-1"></a><span class="fu">summary</span>(fit_mh_fac2, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## lavaan 0.6-18 ended normally after 24 iterations

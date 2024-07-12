@@ -274,6 +274,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="answers-1" class="section level1 unnumbered hasAnchor">
 <h1>Answers<a href="answers-1.html#answers-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>Section 2 Demonstration: Fitting and interpreting a cross-sectional mediation model</em></p>
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S2_CSModel") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+<p>
+Enter the code provided on Blackboard to view the answers:
+</p>
+<p><input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button></p>
+<div id="hiddenContent" style="display:none;">
+
+
+
 <div id="question-1" class="section level2 unnumbered hasAnchor">
 <h2>Question 1<a href="answers-1.html#question-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What is the model predicted average difference in the outcome variable <strong>y</strong> between two people with 1 SD difference in the predictor <strong>x</strong>?</p>

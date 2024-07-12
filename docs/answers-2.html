@@ -274,6 +274,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="answers-2" class="section level1 unnumbered hasAnchor">
 <h1>Answers<a href="answers-2.html#answers-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>Section 4 Practical: Fitting CFA Models: A Case Study using the SF-36 “Mental Health” scale</em></p>
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S4_SF36_MH") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+<p>
+Enter the code provided on Blackboard to view the answers:
+</p>
+<p><input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button></p>
+<div id="hiddenContent" style="display:none;">
+
 <div id="the-task" class="section level2 unnumbered hasAnchor">
 <h2>The Task<a href="answers-2.html#the-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Fit a CFA model assuming a single latent factor that is indicated by items “nervous”, “down”, “peace”, “sad”, “happy” and include intercepts (<code>meanstructure</code>) in the model. Then answer the questions below.</p>

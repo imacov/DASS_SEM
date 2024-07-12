@@ -8,6 +8,25 @@ editor_options:
 
 *Section 5 Practical: Building Multidimensional Confirmatory Factor Analysis Models*
 
+
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S5_CFA_MultiD") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+
+<p>Enter the code provided on Blackboard to view the answers:</p>
+<input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button>
+
+<div id="hiddenContent" style="display:none;">
+
+
 Let's load the required packages: 
 
 ```{r warning = FALSE, message = FALSE}
@@ -17,7 +36,12 @@ library(tidyverse)
 
 And import the data. 
 
-```{r warning = FALSE, message = FALSE}
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+whitehall <- read_csv("D:/DASS/whitehall_NA.csv")
+```
+
+
+```{r eval = FALSE,  warning = FALSE, message = FALSE}
 whitehall <- read_csv("data/whitehall_NA.csv")
 ```
 

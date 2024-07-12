@@ -8,6 +8,23 @@ editor_options:
 
 *Section 2 Demonstration: Fitting and interpreting a cross-sectional mediation model*
 
+<script>
+function revealContent() {
+  var code = document.getElementById("codeInput").value;
+  if (code === "DASS_S2_CSModel") {  
+    document.getElementById("hiddenContent").style.display = "block";
+  } else {
+    alert("Incorrect code!");
+  }
+}
+</script>
+
+<p>Enter the code provided on Blackboard to view the answers:</p>
+<input type="text" id="codeInput">
+<button onclick="revealContent()">Submit</button>
+
+<div id="hiddenContent" style="display:none;">
+
 ```{r warning = FALSE, message = FALSE, echo = FALSE}
 library(lavaan)
 set.seed(1234)
